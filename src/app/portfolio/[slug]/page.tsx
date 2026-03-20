@@ -2,8 +2,8 @@ import Link from 'next/link';
 import { events } from '@/lib/data';
 import { ArrowLeft, Calendar, MapPin } from 'lucide-react';
 import { notFound } from 'next/navigation';
+import { EventGallery } from '@/components/EventGallery';
 
-// Generate static paths for all events
 export function generateStaticParams() {
   return events.map((event) => ({ slug: event.slug }));
 }
@@ -47,41 +47,10 @@ export default function EventPage({ params }: { params: { slug: string } }) {
         </div>
       </section>
 
-      {/* Gallery grid */}
+      {/* Gallery */}
       <section className="px-6 lg:px-12 pb-24">
         <div className="max-w-7xl mx-auto">
-          <div className="columns-1 sm:columns-2 lg:columns-3 gap-3 space-y-3">
-            {event.images.map((img, i) => (
-              <div
-                key={i}
-                className="break-inside-avoid rounded-xl overflow-hidden bg-[#1a1a18] relative group"
-              >
-                {/* Placeholder - replace with actual images */}
-                <div
-                  className="shimmer"
-                  style={{
-                    aspectRatio: i % 3 === 0 ? '3/4' : i % 3 === 1 ? '4/3' : '1/1',
-                  }}
-                />
-              </div>
-            ))}
-          </div>
-
-          {/* Instructions for adding real images */}
-          <div className="mt-16 p-6 rounded-xl border border-dashed border-cream-300/10 text-center space-y-2">
-            <p className="text-xs text-cream-300/30">
-              To add photos: place your images in{' '}
-              <code className="px-1.5 py-0.5 bg-cream-300/5 rounded text-gold-500/60">
-                /public/images/events/{event.slug}/
-              </code>
-            </p>
-            <p className="text-xs text-cream-300/20">
-              Then update the images array in{' '}
-              <code className="px-1.5 py-0.5 bg-cream-300/5 rounded text-gold-500/60">
-                src/lib/data.ts
-              </code>
-            </p>
-          </div>
+          <EventGallery images={event.images} couple={event.couple} />
         </div>
       </section>
     </>
