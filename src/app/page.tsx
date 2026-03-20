@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Camera, Film, Heart, Star } from 'lucide-react';
-import { events, siteConfig, packages } from '@/lib/data';
+import { events, packages, siteConfig } from '@/lib/data';
 import { SectionHeading } from '@/components/SectionHeading';
 import { HeroCarousel } from '@/components/HeroCarousel';
 
@@ -13,50 +13,12 @@ export default function Home() {
   return (
     <>
       {/* ===== HERO ===== */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative h-screen overflow-hidden">
         <HeroCarousel />
 
-        {/* Content */}
-        <div className="relative z-10 text-center px-6 space-y-8">
-          {/* Logo */}
-          <div className="w-28 h-28 sm:w-36 sm:h-36 mx-auto relative gentle-float">
-            <Image src="/images/logo.png" alt={siteConfig.name} fill className="object-contain drop-shadow-2xl" />
-          </div>
-
-          <div className="space-y-4">
-            <h1 className="font-display text-5xl sm:text-6xl lg:text-8xl text-cream-50 tracking-tight">
-              {siteConfig.name}
-            </h1>
-            <p className="font-bengali text-xl sm:text-2xl text-maroon-400">
-              {siteConfig.nameBn}
-            </p>
-          </div>
-
-          <p className="font-body text-sm sm:text-base text-cream-300/50 tracking-widest uppercase max-w-md mx-auto">
-            Wedding Photography &amp; Cinematography
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <Link
-              href="/portfolio"
-              className="group flex items-center gap-2 px-8 py-3.5 bg-maroon-900 hover:bg-maroon-800 text-cream-100 text-sm uppercase tracking-wider rounded-full transition-all duration-300 ring-1 ring-maroon-700/30 hover:ring-maroon-600/50"
-            >
-              View Our Work
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link
-              href="/book-us"
-              className="flex items-center gap-2 px-8 py-3.5 text-cream-200/60 hover:text-gold-400 text-sm uppercase tracking-wider transition-colors duration-300"
-            >
-              Book Your Date
-            </Link>
-          </div>
-        </div>
-
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-          <span className="text-[10px] uppercase tracking-[0.3em] text-cream-300/20">Scroll</span>
-          <div className="w-[1px] h-12 bg-gradient-to-b from-cream-300/20 to-transparent" />
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10">
+          <div className="w-[1px] h-10 bg-gradient-to-b from-white/30 to-transparent" />
         </div>
       </section>
 
@@ -78,8 +40,13 @@ export default function Home() {
                   i === 0 ? 'sm:row-span-2 aspect-[3/4]' : 'aspect-[4/3]'
                 } bg-charcoal-light`}
               >
-                {/* Placeholder - replace with actual images */}
-                <div className="absolute inset-0 bg-gradient-to-br from-maroon-950 to-[#1a1a18] shimmer" />
+                <Image
+                  src={event.coverImage}
+                  alt={event.couple}
+                  fill
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 640px) 100vw, 50vw"
+                />
 
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />

@@ -4,14 +4,14 @@ import { useEffect, useState, useCallback } from 'react';
 import Image from 'next/image';
 
 const SLIDES = [
-  '/images/carousel/01.jpg',
+  '/images/carousel/04.jpg',
   '/images/carousel/02.jpg',
   '/images/carousel/03.jpg',
-  '/images/carousel/04.jpg',
+  '/images/carousel/01.jpg',
   '/images/carousel/05.jpg',
 ];
 
-const INTERVAL = 5000;
+const INTERVAL = 10000;
 
 export function HeroCarousel() {
   const [current, setCurrent] = useState(0);
@@ -52,8 +52,8 @@ export function HeroCarousel() {
             onLoad={() => markLoaded(i)}
             sizes="100vw"
           />
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-black/55" />
+          {/* Overlay — light vignette only */}
+          <div className="absolute inset-0 bg-black/20" />
         </div>
       ))}
 

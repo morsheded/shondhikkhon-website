@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { events } from '@/lib/data';
 import { SectionHeading } from '@/components/SectionHeading';
@@ -59,8 +60,13 @@ export default function PortfolioPage() {
                   href={`/portfolio/${event.slug}`}
                   className="group relative aspect-[4/3] rounded-xl overflow-hidden bg-[#1a1a18]"
                 >
-                  {/* Image placeholder */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-maroon-950/60 to-[#1a1a18] shimmer" />
+                  <Image
+                    src={event.coverImage}
+                    alt={event.couple}
+                    fill
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
 
                   {/* Hover overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-40 group-hover:opacity-80 transition-opacity duration-500" />

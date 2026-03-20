@@ -206,7 +206,7 @@ export const teamMembers = [
 
 export const siteConfig = {
   name: 'Shondhikkhon',
-  nameBn: 'সান্ধিক্ষণ',
+  nameBn: 'সন্ধিক্ষণ',
   tagline: 'Capturing timeless moments of love',
   taglineBn: 'প্রেমের চিরকালীন মুহূর্ত ধারণ',
   phone: '+8801790-305080',
