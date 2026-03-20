@@ -12,7 +12,7 @@
     "deploy": "npm run pages:build && npx wrangler pages deploy .vercel/output/static"
   },
   "dependencies": {
-    "next": "14.2.15",
+    "next": "14.2.35",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "framer-motion": "^11.11.0",
@@ -28,6 +28,6 @@
     "autoprefixer": "^10.4.20",
     "@cloudflare/next-on-pages": "^1.13.3",
     "eslint": "^8.57.1",
-    "eslint-config-next": "14.2.15"
+    "eslint-config-next": "14.2.35"
   }
 }
